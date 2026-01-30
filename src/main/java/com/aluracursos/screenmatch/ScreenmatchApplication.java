@@ -1,5 +1,6 @@
 package com.aluracursos.screenmatch;
 
+import com.aluracursos.screenmatch.model.DatosEpisodio;
 import com.aluracursos.screenmatch.model.DatosSerie;
 import com.aluracursos.screenmatch.service.ConsumoApi;
 import com.aluracursos.screenmatch.service.ConvierteDatos;
@@ -30,5 +31,13 @@ public class ScreenmatchApplication implements CommandLineRunner {
         // VARIABLE (Objeto): Almacena el resultado final de la conversión a DatosSerie
         var datos = conversor.obtenerDatos(json, DatosSerie.class);
         System.out.println(datos);
+
+        // 1. Solicitamos los datos crudos (JSON) a la API usando una URL específica con parámetros de temporada y episodio.
+        json = consumoApi.obtenerDatos("https://www.omdbapi.com/?t=game+of+thrones&Season=1&episode=1&apikey=32eabe1a");
+        // 2. Usamos el conversor genérico para transformar ese JSON en un objeto Java de tipo 'DatosEpisodio'.
+        // Aquí sucede la magia de Jackson: mapea los campos de la API a nuestro Record.
+        DatosEpisodio episodios = conversor.obtenerDatos(json, DatosEpisodio.class);
+        // 3. Imprimimos el objeto en consola. Gracias a que usamos un 'Record', Java nos da un toString() automático y bonito.
+        System.out.println(episodios);
     }
 }
