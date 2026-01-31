@@ -44,6 +44,7 @@ public class Principal {
 //
 //            }
 //        }
+        //Mejoría usando funciones Lambda
         temporadas.forEach(t -> t.episodios().forEach(e -> System.out.println(e.titulo())));
 
 
