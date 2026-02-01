@@ -24,10 +24,10 @@ public class ScreenmatchApplication implements CommandLineRunner {
     @Override
     // MÉTODO RUN: Punto de entrada para ejecutar lógica de consola en Spring Boot
     public void run(String... args) throws Exception {
-//        Principal principal = new Principal();
-//        principal.muestraElMenu();
-        EjemploStreams ejemploStreams = new EjemploStreams();
-        ejemploStreams.muestraEjemplo();
+        Principal principal = new Principal();
+        principal.muestraElMenu();
+//        EjemploStreams ejemploStreams = new EjemploStreams();
+//        ejemploStreams.muestraEjemplo();
 
 
 
