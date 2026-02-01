@@ -2,7 +2,7 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/Java-17-orange?style=for-the-badge&logo=java" alt="Java 17">
-  <img src="https://img.shields.io/badge/Spring_Boot-3.0-green?style=for-the-badge&logo=spring" alt="Spring Boot 3">
+  <img src="https://img.shields.io/badge/Spring_Boot-4.2.0-green?style=for-the-badge&logo=spring" alt="Spring Boot 3">
   <img src="https://img.shields.io/badge/Status-En%20Desarrollo-blue?style=for-the-badge" alt="Status">
 </p>
 
