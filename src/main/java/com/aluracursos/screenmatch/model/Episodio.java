@@ -69,4 +69,14 @@ public class Episodio {
     public void setFechaDeLanzamiento(LocalDate fechaDeLanzamiento) {
         this.fechaDeLanzamiento = fechaDeLanzamiento;
     }
+
+    @Override
+    public String toString() {
+        return
+                "temporada=" + temporada +
+                ", titulo='" + titulo + '\'' +
+                ", numeroEpisodio=" + numeroEpisodio +
+                ", evaluacion=" + evaluacion +
+                ", fechaDeLanzamiento=" + fechaDeLanzamiento;
+    }
 }

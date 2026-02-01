@@ -72,6 +72,7 @@ public class Principal {
                         .map(d -> new Episodio(t.numero(), d))
                 )
                 .collect(Collectors.toList());
+
         episodios.forEach(System.out::println);
 
         // 1. Pedir el año al usuario

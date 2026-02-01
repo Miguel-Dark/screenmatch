@@ -49,11 +49,6 @@ public class ScreenmatchApplication implements CommandLineRunner {
 
 
 
-
-
-
-
-
         // INSTANCIA: Crea el objeto para conectar con la API
         //var consumoApi = new ConsumoApi();
         // VARIABLE (String): Almacena la respuesta cruda (JSON) de la petición
