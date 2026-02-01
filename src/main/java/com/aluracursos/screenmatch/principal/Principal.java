@@ -59,15 +59,15 @@ public class Principal {
                 .collect(Collectors.toList());
 
 
-        //Top 5 episodios
+        //Top 10 episodios
         System.out.println("Top 10 episodios");
         datosEpisodios.stream()
                 .filter(e -> !e.evaluacion().equalsIgnoreCase("N/A"))
                 .peek(e -> System.out.println("Primer filtro (N/A)" + e))
                 .sorted(Comparator.comparing(DatosEpisodio::evaluacion).reversed())
-                .peek(e -> System.out.println("Segundo ordenación (M>m) " + e))
+                .peek(e -> System.out.println("Segundo ordenación (M>m)" + e))
                 .map(e -> e.titulo().toUpperCase())
-                .peek(e -> System.out.println("Tercer Filtro Mayúsculas (M>m): " + e))
+                .peek(e -> System.out.println("Tercer Filtro Mayúsculas (m>M):" + e))
                 .limit(10)
                 .forEach(System.out::println);
 
