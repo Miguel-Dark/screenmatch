@@ -8,6 +8,8 @@ import com.aluracursos.screenmatch.model.Episodio;
 import com.aluracursos.screenmatch.service.ConsumoApi;
 import com.aluracursos.screenmatch.service.ConvierteDatos;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -71,6 +73,26 @@ public class Principal {
                 )
                 .collect(Collectors.toList());
         episodios.forEach(System.out::println);
+
+        // 1. Pedir el año al usuario
+        System.out.println("Indica el año a partir del cual deseas ver los episodios:");
+        var fecha = teclado.nextInt();
+        teclado.nextLine(); // Limpieza de buffer para evitar errores de lectura
+
+// 2. Crear la fecha de referencia (1 de enero del año elegido)
+        LocalDate fechaBusca = LocalDate.of(fecha, 1, 1);
+
+// 3. Crear el formateador para la impresión
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
+// 4. Filtrar y mostrar episodios con formato bonito
+        episodios.stream()
+                .filter(e -> e.getFechaDeLanzamiento() != null && e.getFechaDeLanzamiento().isAfter(fechaBusca))
+                .forEach(e -> System.out.println(
+                        "Temporada: " + e.getTemporada() +
+                                " | Episodio: " + e.getTitulo() +
+                                " | Lanzamiento: " + e.getFechaDeLanzamiento().format(dtf)
+                ));
 
     }
 }
