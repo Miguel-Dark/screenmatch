@@ -22,7 +22,7 @@
 <h3><strong>◆ Tecnologías Utilizadas</strong></h3>
 <ul>
   <li><strong>Java 17+</strong></li>
-  <li><strong>Spring Boot 3</strong> (Inicializador de proyecto)</li>
+  <li><strong>Spring Boot 4.2.0</strong> (Inicializador de proyecto)</li>
   <li><strong>Jackson:</strong> Mapeo de JSON a Records de Java.</li>
   <li><strong>OMDb API:</strong> Fuente de datos externa.</li>
 </ul>
