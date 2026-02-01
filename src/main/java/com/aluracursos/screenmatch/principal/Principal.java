@@ -58,13 +58,21 @@ public class Principal {
                 .flatMap(t -> t.episodios().stream())
                 .collect(Collectors.toList());
 
+
         //Top 5 episodios
         System.out.println("Top 10 episodios");
         datosEpisodios.stream()
                 .filter(e -> !e.evaluacion().equalsIgnoreCase("N/A"))
+                .peek(e -> System.out.println("Primer filtro (N/A)" + e))
                 .sorted(Comparator.comparing(DatosEpisodio::evaluacion).reversed())
+                .peek(e -> System.out.println("Segundo ordenación (M>m) " + e))
+                .map(e -> e.titulo().toUpperCase())
+                .peek(e -> System.out.println("Tercer Filtro Mayúsculas (M>m): " + e))
                 .limit(10)
                 .forEach(System.out::println);
+
+
+
 
         //Convirtiendo los datos a una lista del tipo Episodio
         List<Episodio> episodios = temporadas.stream()
@@ -73,7 +81,7 @@ public class Principal {
                 )
                 .collect(Collectors.toList());
 
-        episodios.forEach(System.out::println);
+        //episodios.forEach(System.out::println);
 
         // 1. Busqueda de episodios a partir de x año
         System.out.println("Indica el año a partir del cual deseas ver los episodios:");
@@ -87,13 +95,13 @@ public class Principal {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
 // 4. Filtrar y mostrar episodios con formato bonito
-        episodios.stream()
-                .filter(e -> e.getFechaDeLanzamiento() != null && e.getFechaDeLanzamiento().isAfter(fechaBusqueda))
-                .forEach(e -> System.out.println(
-                        "Temporada: " + e.getTemporada() +
-                                " | Episodio: " + e.getTitulo() +
-                                " | Lanzamiento: " + e.getFechaDeLanzamiento().format(dtf)
-                ));
+//        episodios.stream()
+//                .filter(e -> e.getFechaDeLanzamiento() != null && e.getFechaDeLanzamiento().isAfter(fechaBusqueda))
+//                .forEach(e -> System.out.println(
+//                        "Temporada: " + e.getTemporada() +
+//                                " | Episodio: " + e.getTitulo() +
+//                                " | Lanzamiento: " + e.getFechaDeLanzamiento().format(dtf)
+//                ));
 
     }
 }
