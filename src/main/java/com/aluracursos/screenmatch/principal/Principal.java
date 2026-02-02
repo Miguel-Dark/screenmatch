@@ -60,19 +60,16 @@ public class Principal {
 
 
         //Top 10 episodios
-        System.out.println("Top 10 episodios");
-        datosEpisodios.stream()
-                .filter(e -> !e.evaluacion().equalsIgnoreCase("N/A"))
-                .peek(e -> System.out.println("Primer filtro (N/A)" + e))
-                .sorted(Comparator.comparing(DatosEpisodio::evaluacion).reversed())
-                .peek(e -> System.out.println("Segundo ordenación (M>m)" + e))
-                .map(e -> e.titulo().toUpperCase())
-                .peek(e -> System.out.println("Tercer Filtro Mayúsculas (m>M):" + e))
-                .limit(10)
-                .forEach(System.out::println);
-
-
-
+//        System.out.println("Top 10 episodios");
+//        datosEpisodios.stream()
+//                .filter(e -> !e.evaluacion().equalsIgnoreCase("N/A"))
+//                .peek(e -> System.out.println("Primer filtro (N/A)" + e))
+//                .sorted(Comparator.comparing(DatosEpisodio::evaluacion).reversed())
+//                .peek(e -> System.out.println("Segundo ordenación (M>m)" + e))
+//                .map(e -> e.titulo().toUpperCase())
+//                .peek(e -> System.out.println("Tercer Filtro Mayúsculas (m>M):" + e))
+//                .limit(10)
+//                .forEach(System.out::println);
 
         //Convirtiendo los datos a una lista del tipo Episodio
         List<Episodio> episodios = temporadas.stream()
@@ -102,6 +99,16 @@ public class Principal {
 //                                " | Episodio: " + e.getTitulo() +
 //                                " | Lanzamiento: " + e.getFechaDeLanzamiento().format(dtf)
 //                ));
+
+        //Busca episodios por un pedazo del título
+        System.out.println("Por favor escriba el título del episodio que desea ver:");
+        var pedazoTitulo = teclado.nextLine();
+        episodios.stream()
+                .filter(e -> e.getTitulo().contains(pedazoTitulo))
+                .findFirst();
+
+
+
 
     }
 }

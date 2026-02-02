@@ -2,7 +2,7 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/Java-17-orange?style=for-the-badge&logo=java" alt="Java 17">
-  <img src="https://img.shields.io/badge/Spring_Boot-4.2.0-green?style=for-the-badge&logo=spring" alt="Spring Boot 3">
+  <img src="https://img.shields.io/badge/Spring_Boot-4.0.2-green?style=for-the-badge&logo=spring" alt="Spring Boot 3">
   <img src="https://img.shields.io/badge/Status-En%20Desarrollo-blue?style=for-the-badge" alt="Status">
 </p>
 
@@ -22,7 +22,7 @@
 <h3><strong>◆ Tecnologías Utilizadas</strong></h3>
 <ul>
   <li><strong>Java 17+</strong></li>
-  <li><strong>Spring Boot 4.2.0</strong> (Inicializador de proyecto)</li>
+  <li><strong>Spring Boot 4.0.2</strong> (Inicializador de proyecto)</li>
   <li><strong>Jackson:</strong> Mapeo de JSON a Records de Java.</li>
   <li><strong>OMDb API:</strong> Fuente de datos externa.</li>
 </ul>
