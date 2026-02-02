@@ -10,10 +10,7 @@ import com.aluracursos.screenmatch.service.ConvierteDatos;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 import java.util.stream.Collectors;
 
 
@@ -81,12 +78,12 @@ public class Principal {
         //episodios.forEach(System.out::println);
 
         // 1. Busqueda de episodios a partir de x año
-        System.out.println("Indica el año a partir del cual deseas ver los episodios:");
-        var fecha = teclado.nextInt();
-        teclado.nextLine(); // Limpieza de buffer para evitar errores de lectura
+//        System.out.println("Indica el año a partir del cual deseas ver los episodios:");
+//        var fecha = teclado.nextInt();
+//        teclado.nextLine(); // Limpieza de buffer para evitar errores de lectura
 
 // 2. Crear la fecha de referencia (1 de enero del año elegido)
-        LocalDate fechaBusqueda = LocalDate.of(fecha, 1, 1);
+//        LocalDate fechaBusqueda = LocalDate.of(fecha, 1, 1);
 
 // 3. Crear el formateador para la impresión
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
@@ -103,12 +100,15 @@ public class Principal {
         //Busca episodios por un pedazo del título
         System.out.println("Por favor escriba el título del episodio que desea ver:");
         var pedazoTitulo = teclado.nextLine();
-        episodios.stream()
-                .filter(e -> e.getTitulo().contains(pedazoTitulo))
+        Optional<Episodio> episodioBuscado = episodios.stream()
+                .filter(e -> e.getTitulo().toUpperCase().contains(pedazoTitulo.toUpperCase()))
                 .findFirst();
-
-
-
+        if (episodioBuscado.isPresent()){
+            System.out.println("Episodio encontrado");
+            System.out.println("Los datos son: " + episodioBuscado.get());
+        } else {
+            System.out.println("Episodio no encontrado");
+        }
 
     }
 }
